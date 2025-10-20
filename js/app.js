@@ -11,17 +11,30 @@
 // ===========================
 
 // ============================================
-// DEMO VERSION WARNING
+// CRITICAL WARNING - VISUALIZATION ONLY
 // ============================================
-// This is a DEMONSTRATION application only!
-// The predictions below are generated using simplified mock logic
-// and do NOT represent actual machine learning model output.
+// This application is for VISUALIZATION and DEVELOPMENT purposes ONLY!
 //
-// For production use:
+// ⚠️  ALL PREDICTIONS ARE NOT RELIABLE AND NOT VALIDATED ⚠️
+//
+// The predictions below are generated using simplified mock logic
+// and do NOT represent actual machine learning model output or
+// clinically validated predictions.
+//
+// DO NOT USE for:
+// - Clinical decision-making
+// - Research conclusions
+// - Any real-world applications
+//
+// DEVELOPMENT STATUS:
+// Full functionality is under development and depends on funding availability.
+// This prototype demonstrates only the user interface workflow.
+//
+// For production use (when funding available):
 // 1. Replace predictEndotype() function with actual sklearn model API call
 // 2. Implement proper backend with trained model (.sav file)
 // 3. Add appropriate clinical validation
-// 4. Remove this warning when connected to real model
+// 4. Remove all mock logic and warnings
 // ============================================
 
 // Reference data for endotypes (this will be replaced with actual model predictions)
@@ -191,16 +204,23 @@ function collectFormData() {
 
 function predictEndotype(data) {
     // ============================================
-    // DEMO MOCK PREDICTION - NOT FOR CLINICAL USE
+    // ⚠️  MOCK PREDICTION - NOT RELIABLE ⚠️
     // ============================================
-    // This is a simplified mock prediction logic for demonstration purposes only.
-    // These predictions are NOT based on a trained machine learning model.
+    // This is a simplified mock prediction logic for VISUALIZATION ONLY.
+    // These predictions are NOT based on any validated model.
     //
-    // WARNING: DO NOT use for actual clinical decision-making!
+    // CRITICAL WARNING:
+    // - Predictions shown are NOT RELIABLE
+    // - NOT validated for any use
+    // - DO NOT use for clinical, research, or decision-making
     //
-    // In production, replace this function with:
+    // This prototype demonstrates UI workflow only.
+    // Full functionality depends on funding availability.
+    //
+    // Future implementation (funding dependent):
     // - API call to backend sklearn model
     // - Proper feature preprocessing
+    // - Clinical validation and testing
     // - Model validation and error handling
     // ============================================
 
@@ -278,13 +298,13 @@ function displayResults(prediction) {
     const recommendationsDiv = document.getElementById('clinical-recommendations');
     recommendationsDiv.innerHTML = '<h6 class="mb-3">Recommended Actions:</h6>';
 
-    // Add demo warning to recommendations
+    // Add critical warning to recommendations
     const demoWarning = document.createElement('div');
-    demoWarning.className = 'alert alert-warning alert-sm mb-3';
+    demoWarning.className = 'alert alert-danger alert-sm mb-3';
     demoWarning.innerHTML = `
         <i class="bi bi-exclamation-triangle-fill"></i>
-        <strong>Demo Mode:</strong> These recommendations are for demonstration purposes only.
-        Clinical decisions should be based on validated models and professional judgment.
+        <strong>⚠️ NOT RELIABLE:</strong> This prediction is NOT validated and NOT reliable.
+        For visualization only. Full functionality under development (funding dependent).
     `;
     recommendationsDiv.appendChild(demoWarning);
 

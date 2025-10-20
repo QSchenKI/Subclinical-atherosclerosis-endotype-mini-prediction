@@ -37,24 +37,29 @@
             <h1 class="display-5 mb-2">Atherosclerosis Endotype Risk Prediction</h1>
             <p class="lead text-muted">Clinical decision support tool for cardiovascular risk stratification</p>
             <div class="badge bg-warning text-dark fs-6 mt-2">
-                <i class="bi bi-exclamation-triangle-fill"></i> DEMO VERSION - For Research and Development Only
+                <i class="bi bi-exclamation-triangle-fill"></i> VISUALIZATION ONLY - Not for Clinical Use
             </div>
         </div>
     </header>
 
     <!-- Demo Warning Banner -->
-    <div class="alert alert-warning alert-dismissible fade show mx-auto my-4" role="alert" style="max-width: 1200px;">
-        <h5 class="alert-heading"><i class="bi bi-exclamation-triangle-fill"></i> Demo Application Notice</h5>
+    <div class="alert alert-danger alert-dismissible fade show mx-auto my-4" role="alert" style="max-width: 1200px;">
+        <h5 class="alert-heading"><i class="bi bi-exclamation-triangle-fill"></i> Important Notice: Visualization Only</h5>
         <p class="mb-2">
-            <strong>This is a demonstration version of the endotype prediction system.</strong>
-            The current predictions are generated using simplified mock logic and do NOT use the actual trained machine learning model.
+            <strong>This web application is for visualization and development purposes ONLY.</strong>
+            All predictions shown here are NOT RELIABLE and should NOT be used for any clinical or research decisions.
+        </p>
+        <p class="mb-2">
+            The current version uses simplified mock logic to demonstrate the user interface workflow.
+            It does NOT contain any validated machine learning model or accurate prediction algorithms.
         </p>
         <hr>
         <p class="mb-0">
             <small>
                 <i class="bi bi-info-circle"></i>
-                This demo is intended to showcase the user interface and workflow. For production use,
-                this system must be connected to a validated sklearn model with appropriate clinical validation.
+                <strong>Development Status:</strong> The full functionality of this application is under development
+                and depends on funding availability. This prototype serves only to showcase the potential workflow
+                and interface design.
             </small>
         </p>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -346,10 +351,11 @@
                                 </p>
                             </div>
 
-                            <div class="alert alert-warning mt-3" role="alert">
-                                <strong><i class="bi bi-exclamation-triangle-fill"></i> Disclaimer:</strong>
-                                This tool is for research and educational purposes only. It should not be used as the sole basis for clinical decision-making.
-                                Always consult with qualified healthcare professionals for patient care.
+                            <div class="alert alert-danger mt-3" role="alert">
+                                <strong><i class="bi bi-exclamation-triangle-fill"></i> Critical Disclaimer:</strong>
+                                This is a visualization prototype only. <strong>Predictions are NOT reliable and NOT validated.</strong>
+                                Do NOT use for clinical, research, or any decision-making purposes.
+                                The full functional version is under development pending funding availability.
                             </div>
                         </div>
                     </div>
@@ -362,7 +368,8 @@
     <footer class="bg-dark text-white py-4 mt-5">
         <div class="container text-center">
             <p class="mb-1">Atherosclerosis Endotype Prediction Tool &copy; 2025</p>
-            <p class="mb-2"><small>Demo Version - For Research Use Only</small></p>
+            <p class="mb-2"><small class="text-warning">⚠️ Visualization Prototype Only - Predictions Not Reliable</small></p>
+            <p class="mb-2"><small>Full functionality under development (funding dependent)</small></p>
             <p class="mb-0" style="font-size: 0.9rem;">
                 Developed by
                 <a href="https://ki.se/personer/chen-qiaosen" target="_blank" class="text-white text-decoration-underline">Qiao Sen Chen</a>
