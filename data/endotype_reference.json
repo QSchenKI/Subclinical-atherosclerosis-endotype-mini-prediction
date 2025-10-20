@@ -1,0 +1,203 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2025-01-20",
+    "reference": "PMC10730242",
+    "description": "Reference data for atherosclerosis endotype prediction"
+  },
+  "endotypes": {
+    "1": {
+      "name": "Endotype 1 - Low Risk",
+      "hazard_ratio": {
+        "mi_risk": 1.0,
+        "confidence_interval_lower": null,
+        "confidence_interval_upper": null,
+        "p_value": "reference"
+      },
+      "characteristics": {
+        "il6r_range": "< 1500 pg/mL",
+        "hspb1_range": "< 2000 pg/mL",
+        "inflammatory_profile": "Minimal",
+        "risk_level": "Low"
+      },
+      "pathways": [
+        "Baseline inflammatory state",
+        "Normal vascular function",
+        "Minimal oxidative stress",
+        "Intact endothelial barrier"
+      ],
+      "clinical_features": [
+        "Lowest cardiovascular event rate",
+        "Optimal biomarker profile",
+        "Standard risk factor management indicated"
+      ]
+    },
+    "2": {
+      "name": "Endotype 2 - Low-Moderate Risk",
+      "hazard_ratio": {
+        "mi_risk": 2.1,
+        "confidence_interval_lower": 1.5,
+        "confidence_interval_upper": 2.9,
+        "p_value": 0.001
+      },
+      "characteristics": {
+        "il6r_range": "1500-2500 pg/mL",
+        "hspb1_range": "2000-2800 pg/mL",
+        "inflammatory_profile": "Mild",
+        "risk_level": "Low-Moderate"
+      },
+      "pathways": [
+        "IL6R-mediated inflammation",
+        "JAK-STAT signaling activation",
+        "Acute phase response",
+        "Endothelial activation",
+        "Leukocyte adhesion"
+      ],
+      "clinical_features": [
+        "Elevated IL6R signaling",
+        "Mild systemic inflammation",
+        "Enhanced anti-inflammatory therapy may be beneficial"
+      ]
+    },
+    "3": {
+      "name": "Endotype 3 - Moderate-High Risk",
+      "hazard_ratio": {
+        "mi_risk": 3.5,
+        "confidence_interval_lower": 2.7,
+        "confidence_interval_upper": 4.5,
+        "p_value": 0.0001
+      },
+      "characteristics": {
+        "il6r_range": "Variable",
+        "hspb1_range": "> 3000 pg/mL",
+        "inflammatory_profile": "Moderate-High",
+        "risk_level": "Moderate-High"
+      },
+      "pathways": [
+        "Heat shock protein response activation",
+        "Cellular stress pathways",
+        "TNF-α signaling",
+        "Oxidative stress response",
+        "Protein folding stress",
+        "ER stress response",
+        "Apoptotic signaling"
+      ],
+      "clinical_features": [
+        "Significant HSPB1 elevation",
+        "Cellular stress response activation",
+        "Aggressive risk factor modification needed"
+      ]
+    },
+    "4": {
+      "name": "Endotype 4 - Very High Risk",
+      "hazard_ratio": {
+        "mi_risk": 5.2,
+        "confidence_interval_lower": 4.1,
+        "confidence_interval_upper": 6.8,
+        "p_value": 0.00001
+      },
+      "characteristics": {
+        "il6r_range": "> 2500 pg/mL",
+        "hspb1_range": "> 3500 pg/mL",
+        "inflammatory_profile": "Severe",
+        "risk_level": "Very High"
+      },
+      "pathways": [
+        "Multi-pathway inflammatory activation",
+        "IL6R/JAK-STAT signaling hyperactivation",
+        "HSPB1-mediated stress response",
+        "TNFR1 activation",
+        "NF-κB pathway activation",
+        "Systemic endothelial dysfunction",
+        "Advanced plaque instability",
+        "Matrix metalloproteinase activation",
+        "Thrombotic pathway activation"
+      ],
+      "clinical_features": [
+        "Multiple inflammatory pathways activated",
+        "Highest cardiovascular event rate",
+        "Maximal medical therapy indicated",
+        "Consider novel therapeutic approaches"
+      ]
+    }
+  },
+  "biomarkers": {
+    "il6r": {
+      "full_name": "Interleukin-6 Receptor",
+      "unit": "pg/mL",
+      "function": "Mediates IL-6 inflammatory signaling",
+      "clinical_significance": "Marker of systemic inflammation and cardiovascular risk",
+      "pathway": "JAK-STAT signaling, acute phase response"
+    },
+    "hspb1": {
+      "full_name": "Heat Shock Protein Beta-1 (HSP27)",
+      "unit": "pg/mL",
+      "function": "Cellular stress response and protein folding",
+      "clinical_significance": "Elevated in response to cellular stress, oxidative damage",
+      "pathway": "Stress response, apoptosis regulation, cytoskeletal stabilization"
+    },
+    "tnfr1": {
+      "full_name": "Tumor Necrosis Factor Receptor 1",
+      "unit": "pg/mL",
+      "function": "TNF-α signaling mediator",
+      "clinical_significance": "Inflammation and apoptosis signaling",
+      "pathway": "NF-κB activation, inflammatory cytokine cascade"
+    },
+    "crp": {
+      "full_name": "High-sensitivity C-Reactive Protein",
+      "unit": "mg/L",
+      "function": "Acute phase reactant",
+      "clinical_significance": "General marker of systemic inflammation",
+      "pathway": "Complement activation, innate immunity"
+    }
+  },
+  "treatment_implications": {
+    "endotype_1": [
+      "Standard guideline-directed medical therapy",
+      "Regular cardiovascular risk assessment",
+      "Lifestyle modifications",
+      "Routine lipid management"
+    ],
+    "endotype_2": [
+      "Intensified statin therapy",
+      "Monitor inflammatory markers",
+      "Consider anti-inflammatory agents in select cases",
+      "Optimize diabetes and hypertension control"
+    ],
+    "endotype_3": [
+      "Aggressive lipid-lowering therapy",
+      "Consider PCSK9 inhibitors",
+      "Evaluate for secondary prevention strategies",
+      "Close cardiovascular monitoring",
+      "Cardiology referral recommended"
+    ],
+    "endotype_4": [
+      "Maximal medical therapy",
+      "Consider novel anti-inflammatory therapies (IL-6 inhibitors, colchicine)",
+      "Evaluate for coronary imaging",
+      "Clinical trial enrollment consideration",
+      "Frequent cardiology follow-up",
+      "Aggressive management of all modifiable risk factors"
+    ]
+  },
+  "pathway_details": {
+    "il6_jak_stat": {
+      "name": "IL-6/JAK-STAT Signaling",
+      "description": "Promotes inflammatory gene expression and acute phase response",
+      "targets": ["IL6R", "JAK1/2", "STAT3"],
+      "therapeutic_implications": "Potential target for anti-IL6R therapy (tocilizumab)"
+    },
+    "heat_shock_response": {
+      "name": "Heat Shock Protein Response",
+      "description": "Cellular protection against stress, but chronic elevation indicates ongoing damage",
+      "targets": ["HSPB1", "HSP70", "HSP90"],
+      "therapeutic_implications": "Reflects cellular stress burden, target for antioxidant therapy"
+    },
+    "tnf_signaling": {
+      "name": "TNF-α Signaling",
+      "description": "Pro-inflammatory cytokine pathway associated with atherosclerosis",
+      "targets": ["TNFR1", "NF-κB", "MAPK"],
+      "therapeutic_implications": "Potential for TNF inhibition in select high-risk cases"
+    }
+  }
+}

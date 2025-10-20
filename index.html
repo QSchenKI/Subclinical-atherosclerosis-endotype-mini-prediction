@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atherosclerosis Endotype Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-heart-pulse-fill"></i> Endotype Predictor
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#input-section">Input</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about-section">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-light py-4">
+        <div class="container">
+            <h1 class="display-5 mb-2">Atherosclerosis Endotype Risk Prediction</h1>
+            <p class="lead text-muted">Clinical decision support tool for cardiovascular risk stratification</p>
+            <div class="badge bg-warning text-dark fs-6 mt-2">
+                <i class="bi bi-exclamation-triangle-fill"></i> DEMO VERSION - For Research and Development Only
+            </div>
+        </div>
+    </header>
+
+    <!-- Demo Warning Banner -->
+    <div class="alert alert-warning alert-dismissible fade show mx-auto my-4" role="alert" style="max-width: 1200px;">
+        <h5 class="alert-heading"><i class="bi bi-exclamation-triangle-fill"></i> Demo Application Notice</h5>
+        <p class="mb-2">
+            <strong>This is a demonstration version of the endotype prediction system.</strong>
+            The current predictions are generated using simplified mock logic and do NOT use the actual trained machine learning model.
+        </p>
+        <hr>
+        <p class="mb-0">
+            <small>
+                <i class="bi bi-info-circle"></i>
+                This demo is intended to showcase the user interface and workflow. For production use,
+                this system must be connected to a validated sklearn model with appropriate clinical validation.
+            </small>
+        </p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <!-- Input Section -->
+        <section id="input-section" class="mb-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card shadow">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-0"><i class="bi bi-clipboard2-data"></i> Patient Data Input</h4>
+                        </div>
+                        <div class="card-body">
+                            <form id="prediction-form">
+                                <!-- Demographics Section -->
+                                <div class="section-header mb-3">
+                                    <h5 class="text-primary"><i class="bi bi-person-fill"></i> Demographics</h5>
+                                    <hr>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="age" class="form-label">Age <span class="text-danger">*</span></label>
+                                        <input type="number" class="form-control" id="age" name="age"
+                                               min="18" max="120" step="1" required
+                                               placeholder="e.g., 65">
+                                        <div class="form-text">Range: 18-120 years</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="sex" class="form-label">Sex <span class="text-danger">*</span></label>
+                                        <select class="form-select" id="sex" name="sex" required>
+                                            <option value="">Select...</option>
+                                            <option value="M">Male</option>
+                                            <option value="F">Female</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="bmi" class="form-label">BMI (kg/m²)</label>
+                                        <input type="number" class="form-control" id="bmi" name="bmi"
+                                               min="10" max="60" step="0.1"
+                                               placeholder="e.g., 28.5">
+                                        <div class="form-text">Range: 10-60 kg/m²</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="smoking" class="form-label">Smoking Status</label>
+                                        <select class="form-select" id="smoking" name="smoking">
+                                            <option value="">Select...</option>
+                                            <option value="never">Never</option>
+                                            <option value="former">Former</option>
+                                            <option value="current">Current</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Biomarkers Section -->
+                                <div class="section-header mb-3 mt-4">
+                                    <h5 class="text-primary"><i class="bi bi-droplet-fill"></i> Protein Biomarkers</h5>
+                                    <hr>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="il6r" class="form-label">IL6R (pg/mL) <span class="text-danger">*</span></label>
+                                        <input type="number" class="form-control" id="il6r" name="il6r"
+                                               min="0" step="0.01" required
+                                               placeholder="e.g., 1500.5">
+                                        <div class="form-text">Interleukin-6 Receptor</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="hspb1" class="form-label">HSPB1 (pg/mL) <span class="text-danger">*</span></label>
+                                        <input type="number" class="form-control" id="hspb1" name="hspb1"
+                                               min="0" step="0.01" required
+                                               placeholder="e.g., 2300.2">
+                                        <div class="form-text">Heat Shock Protein Beta-1</div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="tnfr1" class="form-label">TNFR1 (pg/mL)</label>
+                                        <input type="number" class="form-control" id="tnfr1" name="tnfr1"
+                                               min="0" step="0.01"
+                                               placeholder="e.g., 850.3">
+                                        <div class="form-text">Tumor Necrosis Factor Receptor 1</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="crp" class="form-label">hs-CRP (mg/L)</label>
+                                        <input type="number" class="form-control" id="crp" name="crp"
+                                               min="0" step="0.01"
+                                               placeholder="e.g., 3.5">
+                                        <div class="form-text">High-sensitivity C-Reactive Protein</div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="ldl" class="form-label">LDL Cholesterol (mg/dL)</label>
+                                        <input type="number" class="form-control" id="ldl" name="ldl"
+                                               min="0" step="0.1"
+                                               placeholder="e.g., 130.0">
+                                        <div class="form-text">Low-Density Lipoprotein</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="hdl" class="form-label">HDL Cholesterol (mg/dL)</label>
+                                        <input type="number" class="form-control" id="hdl" name="hdl"
+                                               min="0" step="0.1"
+                                               placeholder="e.g., 45.0">
+                                        <div class="form-text">High-Density Lipoprotein</div>
+                                    </div>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <div class="d-grid gap-2 mt-4">
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i class="bi bi-calculator"></i> Predict Endotype
+                                    </button>
+                                    <button type="reset" class="btn btn-outline-secondary">
+                                        <i class="bi bi-arrow-counterclockwise"></i> Reset Form
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section (Initially Hidden) -->
+        <section id="results-section" class="mb-5" style="display: none;">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card shadow">
+                        <div class="card-header bg-success text-white">
+                            <h4 class="mb-0"><i class="bi bi-check-circle-fill"></i> Prediction Results</h4>
+                        </div>
+                        <div class="card-body">
+                            <!-- Endotype Classification -->
+                            <div class="alert alert-info" role="alert" id="endotype-alert">
+                                <h5 class="alert-heading">
+                                    <i class="bi bi-info-circle-fill"></i> Predicted Endotype:
+                                    <span id="endotype-value" class="badge bg-primary fs-5">-</span>
+                                </h5>
+                                <p class="mb-0" id="endotype-description">-</p>
+                            </div>
+
+                            <div class="row mt-4">
+                                <!-- Risk Metrics -->
+                                <div class="col-md-6 mb-4">
+                                    <div class="card h-100 border-danger">
+                                        <div class="card-header bg-danger text-white">
+                                            <h5 class="mb-0"><i class="bi bi-activity"></i> Risk Metrics</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <table class="table table-sm">
+                                                <tbody>
+                                                    <tr>
+                                                        <td><strong>MI Hazard Ratio:</strong></td>
+                                                        <td class="text-end">
+                                                            <span id="hazard-ratio" class="badge bg-danger">-</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>95% CI:</strong></td>
+                                                        <td class="text-end" id="confidence-interval">-</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Risk Category:</strong></td>
+                                                        <td class="text-end">
+                                                            <span id="risk-category" class="badge">-</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="alert alert-warning alert-sm mt-3" role="alert">
+                                                <small><i class="bi bi-exclamation-triangle-fill"></i>
+                                                Reference: Endotype 1 (HR = 1.0)</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Pathway Information -->
+                                <div class="col-md-6 mb-4">
+                                    <div class="card h-100 border-info">
+                                        <div class="card-header bg-info text-white">
+                                            <h5 class="mb-0"><i class="bi bi-diagram-3-fill"></i> Pathway Involvement</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="list-group list-group-flush" id="pathway-list">
+                                                <li class="list-group-item">Loading...</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Clinical Recommendations -->
+                            <div class="card border-warning mt-4">
+                                <div class="card-header bg-warning">
+                                    <h5 class="mb-0"><i class="bi bi-clipboard2-pulse"></i> Clinical Considerations</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div id="clinical-recommendations">
+                                        <p>Loading recommendations...</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                                <button class="btn btn-outline-primary" onclick="window.print()">
+                                    <i class="bi bi-printer-fill"></i> Print Report
+                                </button>
+                                <button class="btn btn-primary" onclick="newPrediction()">
+                                    <i class="bi bi-arrow-left-circle-fill"></i> New Prediction
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about-section" class="mb-5">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="bi bi-info-circle"></i> About This Tool</h4>
+                        </div>
+                        <div class="card-body">
+                            <h5>Endotype Classification System</h5>
+                            <p>This tool classifies patients into four distinct atherosclerosis endotypes based on protein biomarkers and clinical characteristics:</p>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="list-group mb-3">
+                                        <li class="list-group-item">
+                                            <strong>Endotype 1:</strong> Lowest risk (Reference)
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong>Endotype 2:</strong> Low-moderate risk
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong>Endotype 3:</strong> Moderate-high risk
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong>Endotype 4:</strong> Highest risk
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6>Key Biomarkers</h6>
+                                    <ul>
+                                        <li><strong>IL6R:</strong> Inflammation marker</li>
+                                        <li><strong>HSPB1:</strong> Cellular stress response</li>
+                                        <li><strong>TNFR1:</strong> Inflammatory signaling</li>
+                                        <li><strong>hs-CRP:</strong> Systemic inflammation</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="alert alert-info mt-3" role="alert">
+                                <h6 class="alert-heading">Reference</h6>
+                                <p class="mb-0">
+                                    <i class="bi bi-journal-medical"></i>
+                                    Based on methodology from: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10730242/" target="_blank">PMC10730242</a>
+                                </p>
+                            </div>
+
+                            <div class="alert alert-warning mt-3" role="alert">
+                                <strong><i class="bi bi-exclamation-triangle-fill"></i> Disclaimer:</strong>
+                                This tool is for research and educational purposes only. It should not be used as the sole basis for clinical decision-making.
+                                Always consult with qualified healthcare professionals for patient care.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">Atherosclerosis Endotype Prediction Tool &copy; 2025</p>
+            <p class="mb-0"><small>Demo Version - For Research Use Only</small></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
