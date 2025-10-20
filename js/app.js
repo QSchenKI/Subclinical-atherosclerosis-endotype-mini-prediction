@@ -1,5 +1,13 @@
 // ===========================
-// Data Configuration
+// Atherosclerosis Endotype Prediction Tool
+// ===========================
+// Authors: Qiao Sen Chen and Bruna Gigante
+// Affiliation: Karolinska Institutet
+// https://ki.se/personer/chen-qiaosen
+// https://ki.se/personer/bruna-gigante
+//
+// Based on: https://pmc.ncbi.nlm.nih.gov/articles/PMC10730242/
+// GitHub: https://github.com/QSchenKI/Subclinical_athero_endotype
 // ===========================
 
 // ============================================
